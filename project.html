@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Math Quize Game</title>
+	<link rel="stylesheet" type="text/css" href="newstyle.css">
+	<style type="text/css">
+	{
+
+	<html>
+{
+	background-image: url('new.jpeg')no-repeat center center fixed;
+	-webkit-background-size=cover;
+	-moz-background-size=cover;
+	-0-background-size=cover;
+	background-size: cover;
+}
+	</html>
+	
+
+	</style>
+</head>
+<body>
+<section>
+	<form name="myform">
+	<h1>Math addition Quiz Gmae</h1>
+	<div class="centerdiv">
+		<div class="inserBox">
+			<div class="Box1">
+			<input type="text" name="number1"id="v1">
+			</div>
+			<div class="Box1">
+			<p>+</p>
+			</div>
+			<div class="Box1">
+			<input type="text" name="number2"id="v2">
+			</div>
+		</div>
+			<div class="middlebox">
+				<input type="text" name="mid"id="answ">
+			</div>
+			<div class="sentbox">
+				<button onclick="ans()"name="result">check answer</button>
+			</div>
+	</div>
+	</form>
+</section>
+<script type="text/javascript">
+	let num1=Math.floor(Math.random()*10+1);
+	let num2=Math.floor(Math.random()*10+1);
+	document.myform.number1.value=num1;
+	document.myform.number2.value=num2;
+	let asnw=num1+num2;
+    function ans(){
+    	var res=document.myform.mid.value;
+    	if (res==asnw) {
+    		alert('Congratulation  You win');
+    	}
+    	else{
+    		alert("Wrong Answer And Correct Answer is  "+asnw+   "  .Try again");
+    	}
+    	document.myform.mid.value="";
+    
+  }
+</script>
+</body>
+</html>
