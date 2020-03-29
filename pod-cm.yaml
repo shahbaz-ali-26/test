@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-withcm
+spec:
+  volumes:
+  - name: vol-cm
+    configMap:
+      name: myfirstcm
+  containers:
+  - name: container1
+    image: shahbazyounas/first-docker-app
+    ports:
+    - containerPort: 80
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: vol-cm
+      mountPath: /data/cmy
+

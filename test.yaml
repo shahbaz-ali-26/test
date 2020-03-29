@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: docker/whalesay
+        command: ["cowsay","This is job resourse exmaple"]
+      restartPolicy: Never
+  backoffLimit: 4
+  activeDeadlineSeconds: 60

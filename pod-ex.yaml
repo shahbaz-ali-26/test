@@ -1,0 +1,22 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: ex-pod
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: app
+      operator: In
+      values:
+      - frontend
+  template:
+     metadata:
+       labels:
+         app: frontend
+     spec:
+       containers:
+       - name: container3
+         image: shahbazyounas/first-docker-app
+         ports:
+         - containerPort: 80

@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: live
+spec:
+  containers:
+  - name: container1
+    image: shahbazyounas/first-docker-app
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      exec:
+        command:
+        - ls

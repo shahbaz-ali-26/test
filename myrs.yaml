@@ -1,0 +1,22 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: rs
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: app
+      operator: In
+      values:
+      - myexample
+  template:
+   metadata:
+    labels:
+      app: myexample
+   spec:
+      containers:
+      - name: contaniner2
+        image: shahbazyounas/my-app
+        ports:
+        - containerPort: 80

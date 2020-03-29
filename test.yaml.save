@@ -1,0 +1,19 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata: 
+  name: test
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rstes
+  template:
+    metadata:
+      labels:
+        app: rstes
+    spec:
+     containers:
+     - name: container3
+       image: shahbazyounas/first-docker-app
+       ports:
+       - containerPort: 80

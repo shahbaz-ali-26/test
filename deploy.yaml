@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: container1
+        image: shahbazyounas/first-docker-app
+        ports:
+        - containerPort: 80
+        imagePullPolicy: IfNotPresent

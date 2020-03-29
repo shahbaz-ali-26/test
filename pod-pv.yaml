@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pv-po
+spec:
+  volumes:
+  - name: pv-sh
+    persistentVolumeClaim:
+      claimName: pvc
+  containers:
+  - name: container1
+    image: shahbazyounas/first-docker-app
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: pv-sh
+      mountPath: /data  
+  

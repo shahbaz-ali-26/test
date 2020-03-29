@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-with-vol
+spec:
+  volumes:
+  - name: share-dir
+    emptyDir: {}
+  containers:
+  - name: container-one
+    image: shahbazyounas/first-docker-app
+    ports:
+    - containerPort: 8080
+    volumeMounts:
+    - name: share-dir
+      mountPath: /data  
+  - name: container-two
+    image: shahbazyounas/my-app
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: share-dir
+      mountPath: /var/shar-data

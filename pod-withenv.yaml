@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: env-pod
+  labels:
+    app: envexample
+spec:
+  containers:
+  - name: contaienr1
+    image: shahbazyounas/first-docker-app
+    ports:
+    - containerPort: 80
+    imagePullPolicy: IfNotPresent
+    envFrom:
+    - configMapRef:
+        name: myfirstcmwithenv

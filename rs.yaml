@@ -1,0 +1,23 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: myrs
+  annotations:
+    createdBy: "shahbaz younas"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+     app: rsexample
+  template:
+    metadata:
+      labels:
+        app: rsexample
+    spec:
+      nodeSelector:
+         typeofharddisk: ssd
+      containers:
+      - name: rscontainer
+        image: shahbazyounas/first-docker-app
+        ports:
+        - containerPort: 80   

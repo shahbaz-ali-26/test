@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deploy-pod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: container1
+        image: shahbazyounas/my-app
+        ports:
+        - containerPort: 80
+        imagePullPolicy: IfNotPresent
